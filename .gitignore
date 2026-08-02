@@ -1,0 +1,7 @@
+_backup*/
+*.log
+node_modules/
+build_tools/out/
+installer-output/
+*.pdb
+Thumbs.db
