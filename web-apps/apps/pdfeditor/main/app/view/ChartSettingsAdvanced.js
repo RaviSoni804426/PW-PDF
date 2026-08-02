@@ -40,7 +40,7 @@
  */
 
 define([
-    'text!presentationeditor/main/app/template/ChartSettingsAdvanced.template',
+    'text!pdfeditor/main/app/template/ChartSettingsAdvanced.template',
     'text!common/main/lib/template/ChartVertAxis.template',
     'text!common/main/lib/template/ChartHorAxis.template',
     'common/main/lib/view/AdvancedSettingsWindow'

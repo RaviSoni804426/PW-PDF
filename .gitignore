@@ -5,3 +5,6 @@ build_tools/out/
 installer-output/
 *.pdb
 Thumbs.db
+sdkjs/deploy/
+sdkjs/develop/
+web-apps/deploy/

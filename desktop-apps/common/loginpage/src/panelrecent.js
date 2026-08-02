@@ -687,42 +687,6 @@
                 const docGrid = new DocumentCreationGrid({
                     documentTypes: [
                         {
-                            id: 'word',
-                            title: utils.Lang.newDoc,
-                            langKey: 'newDoc',
-                            formatLabel: {
-                                value: 'DOCX',
-                                gradientColorStart: '#4298C5',
-                                gradientColorEnd: '#2D84B2',
-                                bgColorWinXP: '#287ca9',
-                            },
-                            icon: '#docx-big',
-                        },
-                        {
-                            id: 'cell',
-                            title: utils.Lang.newXlsx,
-                            langKey: 'newXlsx',
-                            formatLabel: {
-                                value: 'XLSX',
-                                gradientColorStart: '#5BB514',
-                                gradientColorEnd: '#318C2B',
-                                bgColorWinXP: '#3aa133',
-                            },
-                            icon: '#xlsx-big',
-                        },
-                        {
-                            id: 'slide',
-                            title: utils.Lang.newPptx,
-                            langKey: 'newPptx',
-                            formatLabel: {
-                                value: 'PPTX',
-                                gradientColorStart: '#F4893A',
-                                gradientColorEnd: '#DE7341',
-                                bgColorWinXP: '#f36700',
-                            },
-                            icon: '#pptx-big',
-                        },
-                        {
                             id: 'form',
                             title: utils.Lang.newForm,
                             langKey: 'newForm',

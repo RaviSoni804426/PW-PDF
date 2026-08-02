@@ -2,7 +2,7 @@
 """Build OnlyOffice SDK JS — concatenation only, no compiler.
 
 Usage:
-    python build.py                           # build all (word, cell, slide, visio)
+    python build.py                           # build word bundle (carries the PDF editor)
     python build.py --product word            # build only word
     python build.py --desktop                 # include desktop-specific files
     python build.py --mobile                  # include mobile-specific files
@@ -30,7 +30,7 @@ ROOT_DIR    = os.path.join(SCRIPT_DIR, '..')
 DEPLOY_DIR  = os.path.join(ROOT_DIR, 'deploy', 'sdkjs')
 DEVELOP_DIR = os.path.join(ROOT_DIR, 'develop', 'sdkjs')
 
-CONFIG_NAMES = ['externs', 'word', 'cell', 'slide', 'visio']
+CONFIG_NAMES = ['externs', 'word']
 
 OTHER_FILES = [
     {
@@ -54,16 +54,6 @@ OTHER_FILES = [
             'serviceworker/*',
         ],
         'dest': os.path.join(DEPLOY_DIR, 'common'),
-    },
-    {
-        'cwd':  os.path.join(ROOT_DIR, 'cell', 'css'),
-        'src':  ['*.css'],
-        'dest': os.path.join(DEPLOY_DIR, 'cell', 'css'),
-    },
-    {
-        'cwd':  os.path.join(ROOT_DIR, 'slide', 'themes'),
-        'src':  ['**/**'],
-        'dest': os.path.join(DEPLOY_DIR, 'slide', 'themes'),
     },
     {
         'cwd':  os.path.join(ROOT_DIR, 'pdf'),
@@ -255,8 +245,8 @@ def main():
     parser.add_argument('--minimize', action=argparse.BooleanOptionalAction, default=None,
                         help='(no-op in concat build; accepted for compatibility)')
     parser.add_argument('--product', action='append',     default=[],
-                        choices=['word', 'cell', 'slide', 'visio'], metavar='PRODUCT',
-                        help='build only this product (default: all four, repeatable)')
+                        choices=['word'], metavar='PRODUCT',
+                        help='build only this product (PW PDF: word bundle carries the PDF editor)')
     args = parser.parse_args()
 
     src_dir = os.path.abspath(args.src) if args.src else ROOT_DIR
@@ -268,10 +258,10 @@ def main():
     configs = load_configs([src_dir] + addon_dirs)
     if not all(configs.get(n) for n in CONFIG_NAMES):
         print('ERROR: Could not load all required configs. '
-              'Make sure configs/ directory exists with word/cell/slide/visio/externs JSON files.')
+              'Make sure configs/ directory exists with word/externs JSON files.')
         sys.exit(1)
 
-    products = args.product or ['word', 'cell', 'slide', 'visio']
+    products = args.product or ['word']
 
     if args.develop:
         print('Building develop scripts...')

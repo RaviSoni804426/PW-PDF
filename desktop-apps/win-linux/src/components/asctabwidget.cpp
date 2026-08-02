@@ -41,6 +41,7 @@
 #include "defines.h"
 #include "utils.h"
 #include "cfilechecker.h"
+#include "OfficeFileFormats.h"
 #include "ceditortools.h"
 #include "ctabundockevent.h"
 
@@ -253,6 +254,11 @@ int CAscTabWidget::addEditor(const COpenOptions& opts)
         file_format = CCefViewEditor::GetFileFormat(opts.wurl);
         if (file_format == 0)
             /* TODO: show error for file format */
+            return -255;
+
+        // PW PDF: only PDF-family files can be opened (pdf, pdf forms, djvu, xps, oxps)
+        if ( !(file_format & AVS_OFFICESTUDIO_FILE_CROSSPLATFORM) &&
+                file_format != AVS_OFFICESTUDIO_FILE_DOCUMENT_OFORM_PDF )
             return -255;
     }
 

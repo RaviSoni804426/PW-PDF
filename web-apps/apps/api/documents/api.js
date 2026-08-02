@@ -1117,18 +1117,11 @@
         var extensionPath = getExtensionPath(),
             path = extensionPath ? extensionPath : (config.type=="test" ? getTestPath() : getBasePath()),
             appMap = {
-                'text': 'documenteditor',
-                'text-pdf': 'documenteditor',
-                'spreadsheet': 'spreadsheeteditor',
-                'presentation': 'presentationeditor',
-                'word': 'documenteditor',
-                'cell': 'spreadsheeteditor',
-                'slide': 'presentationeditor',
+                'text-pdf': 'pdfeditor',
                 'pdf': 'pdfeditor',
-                'diagram': 'visioeditor',
                 'common': 'common'
             },
-            appType = 'word',
+            appType = 'pdf',
             type,
             fillForms = false,
             isForm = false;
@@ -1142,25 +1135,11 @@
                             config.editorConfig && (config.editorConfig.mode !== 'view');
         }
         var corrected_type = correct_app_type(config);
-        if (type && typeof type[2] === 'string') { // djvu|xps|oxps
-            appType = corrected_type === 'mobile' || corrected_type === 'embedded' ? 'word' : 'pdf';
-        } else if (type && typeof type[1] === 'string') { // pdf - need check
+        // PW PDF: every supported type (pdf, pdf forms, djvu, xps, oxps) opens in the PDF editor
+        if (type && typeof type[1] === 'string') { // pdf
             isForm = config.document ? config.document.isForm : undefined;
-            if (corrected_type === 'embedded')
-                appType = fillForms && isForm===undefined ? 'common' : 'word';
-            else if (corrected_type !== 'mobile')
-                appType = isForm===undefined ? 'common' : isForm ? 'word' : 'pdf';
-        } else if (type && typeof type[5] === 'string') { // oform|docxf
-            appType = 'word';
-        } else {
-            if (typeof config.documentType === 'string')
-                appType = config.documentType.toLowerCase();
-            else {
-                if (type && typeof type[3] === 'string') appType = 'cell'; else
-                if (type && typeof type[4] === 'string') appType = 'slide'; else
-                if (type && typeof type[6] === 'string') appType = 'diagram';
-            }
         }
+        appType = 'pdf';
         if (!(config.editorConfig && config.editorConfig.shardkey && config.document && config.editorConfig.shardkey!==config.document.key))
             path = extendAppPath(config, path);
         path += appMap[appType];

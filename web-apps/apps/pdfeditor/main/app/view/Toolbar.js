@@ -48,7 +48,7 @@ define([
     'underscore',
     'backbone',
     'text!pdfeditor/main/app/template/Toolbar.template',
-    'text!documenteditor/main/app/template/ToolbarView.template',
+    'text!pdfeditor/main/app/template/ToolbarView.template',
     'common/main/lib/collection/Fonts',
     'common/main/lib/component/Button',
     'common/main/lib/component/ColorButton',

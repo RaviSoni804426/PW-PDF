@@ -301,9 +301,6 @@ function onNewFileClick(e) {
 
     var t;
     switch (e.currentTarget.attributes['action'].value) {
-    case 'new:docx': t = 'word'; break;
-    case 'new:xlsx': t = 'cell'; break;
-    case 'new:pptx': t = 'slide'; break;
     case 'new:form': t = 'form'; break;
     default: break;
     }
