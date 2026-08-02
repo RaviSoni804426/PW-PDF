@@ -111,6 +111,17 @@ gclient sync --force --no-history
 
 The pinned version is V8 **8.9.255.25**.
 
+## Memory
+
+This build machine has 8 GB of RAM. `core/Common/base.pri` originally passed a
+bare `/MP` to cl, which starts one compiler per core; together they leave the
+linker without enough memory and it is killed by the OS **without printing
+anything** — the build log simply stops mid-link and `make.py` exits non-zero.
+The flag is capped at `/MP2` for that reason.
+
+Do not run a second ONLYOFFICE-family build (e.g. a sibling PW project)
+concurrently on this machine; the two will starve each other the same way.
+
 ## Build order
 
 `boost → cef → icu → openssl → curl → websocket → v8 → html2 → iwork → md →

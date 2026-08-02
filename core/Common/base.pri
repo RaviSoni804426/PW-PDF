@@ -329,7 +329,10 @@ core_windows {
 	CONFIG -= debug_and_release debug_and_release_target
 	QMAKE_CXXFLAGS_RELEASE += /Zc:strictStrings-
 	QMAKE_CXXFLAGS += /Zc:strictStrings-
-	QMAKE_CXXFLAGS += /MP
+	# PW PDF: cap parallel compilation. Bare /MP spawns one cl.exe per core, and
+	# on a 8 GB build machine the resulting footprint starves the linker, which
+	# then dies without printing anything.
+	QMAKE_CXXFLAGS += /MP2
 
 	MSVC_VERSION_DETECT = $$(VisualStudioVersion)
 	greaterThan(MSVC_VERSION_DETECT, 15.0) {
