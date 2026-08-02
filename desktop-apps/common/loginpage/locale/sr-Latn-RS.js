@@ -1,5 +1,5 @@
 l10n.sr_Latn_RS = {
-    welWelcome: 'Dobro došli u ONLYOFFICE Desktop Uređivače!',
+    welWelcome: 'Dobro došli u PW PDF Uređivače!',
     welDescr: 'Radite na dokumentima oflajn ili konektujte paket na svoj oblak: ONLYOFFICE, ownCloud, Nextcloud.',
     welNeedHelp: 'Treba vam pomoć? Posetite naš $1.',
     textHelpCenter: 'Centar za pomoć',

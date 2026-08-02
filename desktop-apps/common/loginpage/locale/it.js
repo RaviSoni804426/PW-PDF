@@ -1,5 +1,5 @@
 l10n.it_IT = {
-    welWelcome: 'Benvenuti su ONLYOFFICE Desktop Editors!',
+    welWelcome: 'Benvenuti su PW PDF!',
     welDescr: 'Lavora ai documenti offline o collega la suite al tuo cloud: ONLYOFFICE, ownCloud, Nextcloud.',
     welNeedHelp: 'Hai bisogno di aiuto? Visita il nostro $1.',
     textHelpCenter: 'Centro Assistenza',

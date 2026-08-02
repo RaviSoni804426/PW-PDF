@@ -1,5 +1,5 @@
 l10n.be = {
-    welWelcome: 'Вітаем у ONLYOFFICE Desktop Editors!',
+    welWelcome: 'Вітаем у PW PDF!',
     welDescr: 'Працуйце з дакументамі ў аўтаномным рэжыме або падлучыцеся да воблака: ONLYOFFICE, ownCloud, Nextcloud.',
     welNeedHelp: 'Патрэбна дапамога? Наведайце наш $1.',
     textHelpCenter: 'Цэнтр дапамогі',

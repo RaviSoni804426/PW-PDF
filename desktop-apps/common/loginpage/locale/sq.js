@@ -1,5 +1,5 @@
 l10n.sq = {
-    welWelcome: 'Mirësevini në ONLYOFFICE Desktop Editors!',
+    welWelcome: 'Mirësevini në PW PDF!',
     welDescr: 'Punoni me dokumente jashtë linje ose lidhni paketën me renë tuaj kompjuterike: ONLYOFFICE, ownCloud, Nextcloud.',
     welNeedHelp: 'Keni nevojë për ndihmë? Vizitoni $1.',
     textHelpCenter: 'Qendra e Ndihmës',

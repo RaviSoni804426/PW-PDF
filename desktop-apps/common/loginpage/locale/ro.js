@@ -1,5 +1,5 @@
 l10n.ro = {
-    welWelcome: 'Bine ați venit la ONLYOFFICE Desktop Editors!',
+    welWelcome: 'Bine ați venit la PW PDF!',
     welDescr: 'Lucrați la documente offline sau conecta suitați suitã la cloud: ONLYOFFICE, ownCloud, Nextcloud.',
     welNeedHelp: 'Aveți nevoie de ajutor? Vizitează $1.',
     textHelpCenter: 'Centru de ajutor',

@@ -41,35 +41,35 @@
 #define reUserName          "([^\\.]+)\\.?([^\\.]+)?"
 #define reCmdLang           "--(keep)?lang[:|=](\\w{2,5})"
 
-#define APP_NAME "DesktopEditors"
-#define APP_TITLE "ONLYOFFICE"
+#define APP_NAME "PWPDF"
+#define APP_TITLE "PW PDF"
 #ifdef __linux
-# define APP_DATA_PATH "/onlyoffice/desktopeditors"
-# define REG_GROUP_KEY "onlyoffice"
-# define APP_MUTEX_NAME "asc:editors"
-# define DESKTOP_FILE_NAME "onlyoffice-desktopeditors"
+# define APP_DATA_PATH "/pwpdf/pwpdf"
+# define REG_GROUP_KEY "pwpdf"
+# define APP_MUTEX_NAME "pwpdf:editors"
+# define DESKTOP_FILE_NAME "pwpdf"
 #else
-# define APP_DATA_PATH "/ONLYOFFICE/DesktopEditors"
-# define APP_REG_NAME  "ONLYOFFICE"
-# define REG_GROUP_KEY "ONLYOFFICE"
-# define REG_UNINST_KEY "ONLYOFFICE Desktop Editors"
-# define APP_MUTEX_NAME "TEAMLAB"
+# define APP_DATA_PATH "/PWPDF/PWPDF"
+# define APP_REG_NAME  "PWPDF"
+# define REG_GROUP_KEY "PWPDF"
+# define REG_UNINST_KEY "PW PDF"
+# define APP_MUTEX_NAME "PWPDF"
 #endif
 
-#define WINDOW_NAME "ONLYOFFICE"
+#define WINDOW_NAME "PW PDF"
 #define WINDOW_TITLE WINDOW_NAME
-#define WINDOW_CLASS_NAME L"DocEditorsWindowClass"
-#define WINDOW_EDITOR_CLASS_NAME L"SingleWindowClass"
-#define REG_APP_NAME "DesktopEditors"
+#define WINDOW_CLASS_NAME L"PWPDFWindowClass"
+#define WINDOW_EDITOR_CLASS_NAME L"PWPDFSingleWindowClass"
+#define REG_APP_NAME "PWPDF"
 #define APP_DEFAULT_LOCALE "en-US"
 #define APP_DEFAULT_SYSTEM_LOCALE 1
-#define APP_USER_MODEL_ID "ASC.Documents.5"
-#define APP_SIMPLE_WINDOW_TITLE "ONLYOFFICE Editor"
-#define APP_PROTOCOL "oo-office"
-#define FILE_PREFIX "onlyoffice_"
+#define APP_USER_MODEL_ID "PW.PDF.1"
+#define APP_SIMPLE_WINDOW_TITLE "PW PDF"
+#define APP_PROTOCOL "pw-pdf"
+#define FILE_PREFIX "pwpdf_"
 
-#define URL_SITE                "http://www.onlyoffice.com"
-#define URL_SIGNUP              "https://onlyoffice.com/registration.aspx?desktop=true"
+#define URL_SITE                "https://pw.live"
+#define URL_SIGNUP              "https://pw.live"
 
 #define GET_REGISTRY_USER(variable) \
     QSettings variable(QSettings::NativeFormat, QSettings::UserScope, REG_GROUP_KEY, REG_APP_NAME);
@@ -83,8 +83,8 @@
 #define ACTIONPANEL_ACTIVATE    ACTIONPANEL_CONNECT + 1
 
 #define URL_AGPL "https://www.gnu.org/licenses/agpl-3.0.en.html"
-#define DOWNLOAD_PAGE "https://www.onlyoffice.com/en/download-desktop.aspx"
-#define RELEASE_NOTES "https://github.com/ONLYOFFICE/DesktopEditors/blob/master/CHANGELOG.md"
+#define DOWNLOAD_PAGE "https://github.com/RaviSoni804426/PW-PDF/releases"
+#define RELEASE_NOTES "https://github.com/RaviSoni804426/PW-PDF/releases"
 
 #ifdef __linux
 typedef unsigned char BYTE;
