@@ -175,7 +175,10 @@ def ninja_windows_make(args, is_64=True, is_debug=False, is_arm=False):
   base.cmd("ninja", ["-C", directory_out, "v8_wrappers"])
   if is_arm:
     base.copy_file('./' + directory_out + '/obj/v8_wrappers.lib', './' + directory_out + '/x64/obj/v8_wrappers.lib')
-  base.cmd("ninja", ["-C", directory_out])
+  # PW PDF: core links only v8_monolith (see core/Common/3dParty/v8/v8.pri), so
+  # build that target instead of "all" — the default target also pulls in the
+  # cdb debugger copy, which needs the SDK's Debugging Tools for Windows.
+  base.cmd("ninja", ["-C", directory_out, "v8_monolith"])
   base.delete_file("./" + directory_out + "/obj/v8_wrappers.ninja")
   base.move_file("./" + directory_out + "/obj/v8_wrappers.ninja.bak", "./" + directory_out + "/obj/v8_wrappers.ninja")
   return
