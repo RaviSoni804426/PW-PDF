@@ -112,7 +112,9 @@ def parse():
     if ("2015" == options["vs-version"]):
       options["vs-path"] = programFilesDir + "/Microsoft Visual Studio 14.0/VC"
     elif ("2019" == options["vs-version"]):
-      if base.is_dir(programFilesDir + "/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build"):
+      if base.is_dir("C:/BuildTools2019/VC/Auxiliary/Build"):
+        options["vs-path"] = "C:/BuildTools2019/VC/Auxiliary/Build"
+      elif base.is_dir(programFilesDir + "/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build"):
         options["vs-path"] = programFilesDir + "/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build"
       elif base.is_dir(programFilesDir + "/Microsoft Visual Studio/2019/Professional/VC/Auxiliary/Build"):
         options["vs-path"] = programFilesDir + "/Microsoft Visual Studio/2019/Professional/VC/Auxiliary/Build"
