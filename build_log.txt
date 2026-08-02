@@ -1,0 +1,64 @@
+[0:03:10] Still working on:
+[0:03:10]   v8/test/test262/data
+[0:03:10]   v8/third_party/icu
+[0:03:10]   v8/third_party/perfetto
+[0:03:10]   v8/third_party/protobuf
+[0:03:20] Still working on:
+[0:03:20]   v8/test/test262/data
+[0:03:20]   v8/third_party/icu
+[0:03:20]   v8/third_party/perfetto
+[0:03:20]   v8/third_party/protobuf
+[0:03:30] Still working on:
+[0:03:30]   v8/test/test262/data
+[0:03:30]   v8/third_party/icu
+[0:03:30]   v8/third_party/perfetto
+[0:03:30]   v8/third_party/protobuf
+[0:03:37] Still working on:
+[0:03:37]   v8/test/test262/data
+[0:03:37]   v8/third_party/icu
+[0:03:37]   v8/third_party/perfetto
+[0:03:37]   v8/third_party/protobuf
+[0:05:14] Still working on:
+[0:05:14]   v8/third_party/icu
+[0:05:24] Still working on:
+[0:05:24]   v8/third_party/icu
+[0:05:34] Still working on:
+[0:05:34]   v8/third_party/icu
+[0:05:44] Still working on:
+[0:05:44]   v8/third_party/icu
+[0:05:54] Still working on:
+[0:05:54]   v8/third_party/icu
+[0:06:04] Still working on:
+[0:06:04]   v8/third_party/icu
+[0:06:14] Still working on:
+[0:06:14]   v8/third_party/icu
+[0:06:24] Still working on:
+[0:06:24]   v8/third_party/icu
+[0:06:34] Still working on:
+[0:06:34]   v8/third_party/icu
+[0:06:44] Still working on:
+[0:06:44]   v8/third_party/icu
+[0:06:53] Still working on:
+[0:06:53]   v8/third_party/icu
+
+________ running 'cipd ensure -log-level error -root D:\pw-pdf\core\Common\3dParty\v8_89 -ensure-file C:\Users\rk871\AppData\Local\Temp\tmpa4e4c5bj.ensure' in '.'
+[P4792 19:35:52.261 client.go:2177 E] [unzip 1/4] Failed to install gn/gn/windows-amd64 in "v8/buildtools/win": adding files to the site root: rename \\?\D:\pw-pdf\core\Common\3dParty\v8_89\.cipd\pkgs\0\beR10r3u8U2l-qDWEKU7zvXZC_qYW8FSRXxA-WjVcugC\gn.exe \\?\D:\pw-pdf\core\Common\3dParty\v8_89\v8\buildtools\win\gn.exe: The system cannot move the file to a different disk drive.
+[P4792 19:35:59.289 client.go:2177 E] [unzip 3/4] Failed to install infra/tools/luci/isolated/windows-amd64 in "v8/tools/luci-go": adding files to the site root: rename \\?\D:\pw-pdf\core\Common\3dParty\v8_89\.cipd\pkgs\1\403w5beYFOU11k_rWshN7gnULHLDI6X2-AnVNkWsBWUC\isolated.exe \\?\D:\pw-pdf\core\Common\3dParty\v8_89\v8\tools\luci-go\isolated.exe: The system cannot move the file to a different disk drive.
+[P4792 19:36:01.875 client.go:2177 E] [unzip 2/4] Failed to install infra/tools/luci/isolate/windows-amd64 in "v8/tools/luci-go": adding files to the site root: rename \\?\D:\pw-pdf\core\Common\3dParty\v8_89\.cipd\pkgs\2\G0QqvMcDhRx8n64jWbPzQIwZ2M72TECjjAqveLcVYHYC\isolate.exe \\?\D:\pw-pdf\core\Common\3dParty\v8_89\v8\tools\luci-go\isolate.exe: The system cannot move the file to a different disk drive.
+[P4792 19:36:04.395 client.go:2177 E] [unzip 4/4] Failed to install infra/tools/luci/swarming/windows-amd64 in "v8/tools/luci-go": adding files to the site root: rename \\?\D:\pw-pdf\core\Common\3dParty\v8_89\.cipd\pkgs\3\DWljm_r3nHEGDakLwp9nk93WfflumN-y0q9dvSXeLUUC\swarming.exe \\?\D:\pw-pdf\core\Common\3dParty\v8_89\v8\tools\luci-go\swarming.exe: The system cannot move the file to a different disk drive.
+Errors:
+  failed to install gn/gn/windows-amd64 in "v8/buildtools/win": adding files to the site root: rename \\?\D:\pw-pdf\core\Common\3dParty\v8_89\.cipd\pkgs\0\beR10r3u8U2l-qDWEKU7zvXZC_qYW8FSRXxA-WjVcugC\gn.exe \\?\D:\pw-pdf\core\Common\3dParty\v8_89\v8\buildtools\win\gn.exe: The system cannot move the file to a different disk drive.
+  failed to install infra/tools/luci/isolated/windows-amd64 in "v8/tools/luci-go": adding files to the site root: rename \\?\D:\pw-pdf\core\Common\3dParty\v8_89\.cipd\pkgs\1\403w5beYFOU11k_rWshN7gnULHLDI6X2-AnVNkWsBWUC\isolated.exe \\?\D:\pw-pdf\core\Common\3dParty\v8_89\v8\tools\luci-go\isolated.exe: The system cannot move the file to a different disk drive.
+  failed to install infra/tools/luci/isolate/windows-amd64 in "v8/tools/luci-go": adding files to the site root: rename \\?\D:\pw-pdf\core\Common\3dParty\v8_89\.cipd\pkgs\2\G0QqvMcDhRx8n64jWbPzQIwZ2M72TECjjAqveLcVYHYC\isolate.exe \\?\D:\pw-pdf\core\Common\3dParty\v8_89\v8\tools\luci-go\isolate.exe: The system cannot move the file to a different disk drive.
+  failed to install infra/tools/luci/swarming/windows-amd64 in "v8/tools/luci-go": adding files to the site root: rename \\?\D:\pw-pdf\core\Common\3dParty\v8_89\.cipd\pkgs\3\DWljm_r3nHEGDakLwp9nk93WfflumN-y0q9dvSXeLUUC\swarming.exe \\?\D:\pw-pdf\core\Common\3dParty\v8_89\v8\tools\luci-go\swarming.exe: The system cannot move the file to a different disk drive.
+Error: Command 'cipd ensure -log-level error -root D:\\pw-pdf\\core\\Common\\3dParty\\v8_89 -ensure-file C:\\Users\\rk871\\AppData\\Local\\Temp\\tmpa4e4c5bj.ensure' returned non-zero exit status 1
+[P4792 19:35:52.261 client.go:2177 E] [unzip 1/4] Failed to install gn/gn/windows-amd64 in "v8/buildtools/win": adding files to the site root: rename \\?\D:\pw-pdf\core\Common\3dParty\v8_89\.cipd\pkgs\0\beR10r3u8U2l-qDWEKU7zvXZC_qYW8FSRXxA-WjVcugC\gn.exe \\?\D:\pw-pdf\core\Common\3dParty\v8_89\v8\buildtools\win\gn.exe: The system cannot move the file to a different disk drive.
+[P4792 19:35:59.289 client.go:2177 E] [unzip 3/4] Failed to install infra/tools/luci/isolated/windows-amd64 in "v8/tools/luci-go": adding files to the site root: rename \\?\D:\pw-pdf\core\Common\3dParty\v8_89\.cipd\pkgs\1\403w5beYFOU11k_rWshN7gnULHLDI6X2-AnVNkWsBWUC\isolated.exe \\?\D:\pw-pdf\core\Common\3dParty\v8_89\v8\tools\luci-go\isolated.exe: The system cannot move the file to a different disk drive.
+[P4792 19:36:01.875 client.go:2177 E] [unzip 2/4] Failed to install infra/tools/luci/isolate/windows-amd64 in "v8/tools/luci-go": adding files to the site root: rename \\?\D:\pw-pdf\core\Common\3dParty\v8_89\.cipd\pkgs\2\G0QqvMcDhRx8n64jWbPzQIwZ2M72TECjjAqveLcVYHYC\isolate.exe \\?\D:\pw-pdf\core\Common\3dParty\v8_89\v8\tools\luci-go\isolate.exe: The system cannot move the file to a different disk drive.
+[P4792 19:36:04.395 client.go:2177 E] [unzip 4/4] Failed to install infra/tools/luci/swarming/windows-amd64 in "v8/tools/luci-go": adding files to the site root: rename \\?\D:\pw-pdf\core\Common\3dParty\v8_89\.cipd\pkgs\3\DWljm_r3nHEGDakLwp9nk93WfflumN-y0q9dvSXeLUUC\swarming.exe \\?\D:\pw-pdf\core\Common\3dParty\v8_89\v8\tools\luci-go\swarming.exe: The system cannot move the file to a different disk drive.
+Errors:
+  failed to install gn/gn/windows-amd64 in "v8/buildtools/win": adding files to the site root: rename \\?\D:\pw-pdf\core\Common\3dParty\v8_89\.cipd\pkgs\0\beR10r3u8U2l-qDWEKU7zvXZC_qYW8FSRXxA-WjVcugC\gn.exe \\?\D:\pw-pdf\core\Common\3dParty\v8_89\v8\buildtools\win\gn.exe: The system cannot move the file to a different disk drive.
+  failed to install infra/tools/luci/isolated/windows-amd64 in "v8/tools/luci-go": adding files to the site root: rename \\?\D:\pw-pdf\core\Common\3dParty\v8_89\.cipd\pkgs\1\403w5beYFOU11k_rWshN7gnULHLDI6X2-AnVNkWsBWUC\isolated.exe \\?\D:\pw-pdf\core\Common\3dParty\v8_89\v8\tools\luci-go\isolated.exe: The system cannot move the file to a different disk drive.
+  failed to install infra/tools/luci/isolate/windows-amd64 in "v8/tools/luci-go": adding files to the site root: rename \\?\D:\pw-pdf\core\Common\3dParty\v8_89\.cipd\pkgs\2\G0QqvMcDhRx8n64jWbPzQIwZ2M72TECjjAqveLcVYHYC\isolate.exe \\?\D:\pw-pdf\core\Common\3dParty\v8_89\v8\tools\luci-go\isolate.exe: The system cannot move the file to a different disk drive.
+  failed to install infra/tools/luci/swarming/windows-amd64 in "v8/tools/luci-go": adding files to the site root: rename \\?\D:\pw-pdf\core\Common\3dParty\v8_89\.cipd\pkgs\3\DWljm_r3nHEGDakLwp9nk93WfflumN-y0q9dvSXeLUUC\swarming.exe \\?\D:\pw-pdf\core\Common\3dParty\v8_89\v8\tools\luci-go\swarming.exe: The system cannot move the file to a different disk drive.
+

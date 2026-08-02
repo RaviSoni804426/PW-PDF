@@ -7,8 +7,10 @@
 #define AppURL "https://github.com/RaviSoni804426/PW-PDF"
 ; Deployed app dir produced by build_tools deploy_desktop.py:
 #define BuildDir "D:\pw-pdf\build_tools\out\win_64\onlyoffice\DesktopEditors"
-; Main executable name inside BuildDir (verify after build):
-#define MainExe "editors.exe"
+; User-facing launcher inside BuildDir. It is the projicons shim (renamed from
+; DesktopEditors.exe): it carries the file-type icons, accepts --new:form, and
+; starts editors.exe. Shortcuts must point here, not at editors.exe.
+#define MainExe "PWPDF.exe"
 
 [Setup]
 AppId={{7A2B9E1C-4D5F-4E6A-9B3C-PWPDF1000001}
@@ -44,8 +46,9 @@ Source: "D:\pw-pdf\branding\icons\filetype_xps.ico"; DestDir: "{app}\icons"
 Source: "D:\pw-pdf\branding\icons\filetype_oxps.ico"; DestDir: "{app}\icons"
 
 [Icons]
-Name: "{autodesktop}\PW PDF"; Filename: "{app}\{#MainExe}"
-Name: "{group}\PW PDF"; Filename: "{app}\{#MainExe}"
+Name: "{autodesktop}\PW PDF"; Filename: "{app}\{#MainExe}"; WorkingDir: "{app}"; IconFilename: "{app}\app.ico"
+Name: "{group}\PW PDF"; Filename: "{app}\{#MainExe}"; WorkingDir: "{app}"; IconFilename: "{app}\app.ico"
+Name: "{group}\New PDF"; Filename: "{app}\{#MainExe}"; Parameters: "--new:form"; WorkingDir: "{app}"; IconFilename: "{app}\icons\filetype_pdf.ico"
 Name: "{group}\Uninstall PW PDF"; Filename: "{uninstallexe}"
 
 [Registry]

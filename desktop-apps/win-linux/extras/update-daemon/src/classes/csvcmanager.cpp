@@ -54,7 +54,7 @@
 # include <Windows.h>
 # include <WinInet.h>
 # include <shlwapi.h>
-# define APP_LAUNCH_NAME  L"/DesktopEditors.exe"
+# define APP_LAUNCH_NAME  L"/PWPDF.exe"
 # define APP_LAUNCH_NAME2 L"/editors.exe"
 # define APP_HELPER       L"/editors_helper.exe"
 # define DAEMON_NAME      L"/updatesvc.exe"
