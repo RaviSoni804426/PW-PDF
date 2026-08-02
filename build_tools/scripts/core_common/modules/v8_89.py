@@ -226,9 +226,10 @@ def make():
     base.set_env("DEPOT_TOOLS_WIN_TOOLCHAIN", "0")
     base.set_env("GYP_MSVS_VERSION", config.option("vs-version"))
 
-  if not base.is_dir("v8"):
+  # PW PDF: v8/ is a junction to another volume (disk space). The checkout is
+  # created out-of-band (see V8_SETUP.md); fetch is skipped once it is in place.
+  if not base.is_dir("v8/.git"):
     base.cmd("./depot_tools/fetch", ["v8"], True)
-    base.copy_dir("./v8/third_party", "./v8/third_party_new")
     if ("windows" == base.host_platform()):
       os.chdir("v8")
       base.cmd("git", ["config", "--system", "core.longpaths", "true"], True)
@@ -237,11 +238,15 @@ def make():
     if ("mac" == base.host_platform()):
       v8_branch_version = "remotes/branch-heads/9.9"
     base.cmd("./depot_tools/gclient", ["sync", "-r", v8_branch_version], True)
+
+  if not base.is_dir("v8/third_party_new"):
+    base.copy_dir("./v8/third_party", "./v8/third_party_new")
+  if not base.is_dir("v8/build"):
     base.cmd("gclient", ["sync", "--force"], True)
     base.copy_dir("./v8/third_party_new/ninja", "./v8/third_party/ninja")
-    if ("linux" == base.host_platform()):
-      if not base.is_file("./depot_tools/python3_bin_reldir.txt"):
-        base.cmd_in_dir("./depot_tools", "./ensure_bootstrap", [], True)
+  if ("linux" == base.host_platform()):
+    if not base.is_file("./depot_tools/python3_bin_reldir.txt"):
+      base.cmd_in_dir("./depot_tools", "./ensure_bootstrap", [], True)
 
   if ("windows" == base.host_platform()):
     base.replaceInFile("v8/build/config/win/BUILD.gn", ":static_crt", ":dynamic_crt")
