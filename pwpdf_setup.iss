@@ -52,11 +52,10 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Source: "{#BuildDir}\*"; DestDir: "{app}"; Excludes: "*.bak-*,*.bak2,*.bak3"; \
     Flags: ignoreversion recursesubdirs createallsubdirs
 
-; The file-type icons used to be copied in separately from D:\pw-pdf\branding,
-; a path that no longer exists. deploy_desktop.py already places them in the
-; app's icons\ folder, so they arrive with the payload above - and that folder
-; also holds filetype_oxps.ico, which the old explicit list had missed.
-Source: "D:\pw-pdf\branding\icons\filetype_oxps.ico"; DestDir: "{app}\icons"
+; The four file-type icons used to be copied in separately from
+; D:\pw-pdf\branding, a path that no longer exists. deploy_desktop.py already
+; places them in the app's icons\ folder, so they arrive with the payload
+; above and the explicit copies are redundant.
 
 [Icons]
 Name: "{autodesktop}\PW PDF"; Filename: "{app}\{#MainExe}"; WorkingDir: "{app}"; IconFilename: "{app}\app.ico"
