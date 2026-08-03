@@ -3,6 +3,8 @@
 Standalone PDF editor for Windows — a focused fork of ONLYOFFICE Desktop Editors
 (release/v9.4.0) with everything except the PDF editor removed.
 
+![PW PDF start screen](docs/screenshot-home.png)
+
 ## Features
 
 - Open and view PDF files (plus DJVU, XPS, OXPS in view mode)
@@ -14,6 +16,10 @@ Standalone PDF editor for Windows — a focused fork of ONLYOFFICE Desktop Edito
 - Print and save as PDF
 - Templates gallery with PDF templates only
 - "New PDF" creation from the start screen
+
+Anything that is not a PDF, DJVU, XPS or OXPS file is refused with a message
+before a tab opens, whichever way it is opened — command line, file
+association, drag & drop, the file dialog or the recent list.
 
 ## What was removed from the fork
 
@@ -55,6 +61,18 @@ python make.py
 ```
 
 Installer: `pwpdf_setup.iss` (Inno Setup 6).
+
+![PDF open in PW PDF](docs/screenshot-editor.png)
+
+## Install
+
+Download `PW-PDF-Setup-1.0.0-x64.exe` from the
+[releases page](https://github.com/RaviSoni804426/PW-PDF/releases) and run it.
+It installs to `C:\Program Files\PW PDF`, adds Desktop and Start Menu shortcuts
+(including a "New PDF" entry), and registers PW PDF as an option for `.pdf`,
+`.djvu`, `.xps` and `.oxps`. Making it the default handler for a type is left
+to Windows' own "Open with → Choose another app" so an existing PDF reader is
+not hijacked.
 
 ## System requirements
 
