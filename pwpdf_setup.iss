@@ -1,12 +1,16 @@
 ; PW PDF - Inno Setup installer script
-; Build output path is set via BuildDir define — verify after each build.
+; Build with:  ISCC.exe /DBuildDir="<path to the built app>" pwpdf_setup.iss
 
 #define AppName "PW PDF"
 #define AppVersion "1.0.0"
 #define AppPublisher "Physics Wallah"
 #define AppURL "https://github.com/RaviSoni804426/PW-PDF"
-; Deployed app dir produced by build_tools deploy_desktop.py:
-#define BuildDir "D:\pw-pdf\build_tools\out\win_64\onlyoffice\DesktopEditors"
+; Deployed app dir produced by build_tools deploy_desktop.py. Override with
+; ISCC /D so the installer can also be built from an installed copy when the
+; build tree is not around.
+#ifndef BuildDir
+  #define BuildDir "D:\pw-pdf\build_tools\out\win_64\onlyoffice\DesktopEditors"
+#endif
 ; User-facing launcher inside BuildDir. It is the projicons shim (renamed from
 ; DesktopEditors.exe): it carries the file-type icons, accepts --new:form, and
 ; starts editors.exe. Shortcuts must point here, not at editors.exe.
@@ -21,13 +25,15 @@ AppPublisherURL={#AppURL}
 AppSupportURL={#AppURL}
 DefaultDirName={autopf}\PW PDF
 DefaultGroupName=PW PDF
-OutputDir=D:\pw-pdf\installer-output
+; Override with ISCC's /O switch.
+OutputDir={#SourcePath}installer-output
 OutputBaseFilename=PW-PDF-Setup-{#AppVersion}-x64
 Compression=lzma2/max
 SolidCompression=yes
 ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
-SetupIconFile=D:\pw-pdf\branding\icons\PWPDF.ico
+; Relative to this script, so it keeps working wherever the repo is checked out.
+SetupIconFile={#SourcePath}branding\icons\PWPDF.ico
 UninstallDisplayIcon={app}\{#MainExe}
 UninstallDisplayName={#AppName}
 WizardStyle=modern
@@ -39,10 +45,17 @@ ChangesAssociations=yes
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-Source: "{#BuildDir}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\pw-pdf\branding\icons\filetype_pdf.ico"; DestDir: "{app}\icons"
-Source: "D:\pw-pdf\branding\icons\filetype_djvu.ico"; DestDir: "{app}\icons"
-Source: "D:\pw-pdf\branding\icons\filetype_xps.ico"; DestDir: "{app}\icons"
+; Keep rollback copies of patched binaries out of the payload. Do NOT add a
+; bare "*.bak" - ONLYOFFICE ships real product files with that extension
+; (dictionaries/hyph_sl_SI.dic.bak), and excluding those silently drops
+; product data. Only the suffixes our patch scripts create are listed.
+Source: "{#BuildDir}\*"; DestDir: "{app}"; Excludes: "*.bak-*,*.bak2,*.bak3"; \
+    Flags: ignoreversion recursesubdirs createallsubdirs
+
+; The file-type icons used to be copied in separately from D:\pw-pdf\branding,
+; a path that no longer exists. deploy_desktop.py already places them in the
+; app's icons\ folder, so they arrive with the payload above - and that folder
+; also holds filetype_oxps.ico, which the old explicit list had missed.
 Source: "D:\pw-pdf\branding\icons\filetype_oxps.ico"; DestDir: "{app}\icons"
 
 [Icons]
