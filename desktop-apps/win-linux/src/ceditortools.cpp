@@ -396,11 +396,30 @@ namespace CEditorTools
 
     auto createEditorPanel(const COpenOptions& opts, QWidget *parent) -> CTabPanel *
     {
+        // PW PDF handles the PDF family only. Every open route — command line,
+        // shell association, drag & drop, file dialog, recent list — ends up
+        // here, so refusing at this point keeps a rejected file from ever
+        // getting a tab. A stale recent entry from another editor is covered
+        // too. New and template documents never arrive as local files.
+        auto isPdfFamily = [](int format) {
+            return (format & AVS_OFFICESTUDIO_FILE_CROSSPLATFORM) ||
+                    format == AVS_OFFICESTUDIO_FILE_DOCUMENT_OFORM_PDF;
+        };
+        auto refuseFormat = []() -> CTabPanel * {
+            AscAppManager::gotoMainWindow();
+            CMessage::info(AscAppManager::getInstance().mainWindow(),
+                           QObject::tr("PW PDF opens PDF, DJVU, XPS and OXPS files only."));
+            return nullptr;
+        };
+
         int _file_format{0};
         if ( opts.srctype == etLocalFile ) {
             _file_format = CCefViewEditor::GetFileFormat(opts.wurl);
             if ( _file_format == 0 )
                 return nullptr;
+
+            if ( !isPdfFamily(_file_format) )
+                return refuseFormat();
         } else
         if (opts.srctype == etRecentFile) {
             if (CFileInspector::isLocalFile(QString::fromStdWString(opts.wurl))) {
@@ -410,6 +429,10 @@ namespace CEditorTools
                     CMessage::error(AscAppManager::getInstance().mainWindow(), QObject::tr("Access to file '%1' is denied!").arg(opts.url));
                     return nullptr;
                 }
+
+                int _recent_format = CCefViewEditor::GetFileFormat(opts.wurl);
+                if ( _recent_format != 0 && !isPdfFamily(_recent_format) )
+                    return refuseFormat();
             }
         }
 
