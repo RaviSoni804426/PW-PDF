@@ -1,6 +1,6 @@
 l10n.hi = {
-    welWelcome: 'ओनलीऑफिस डेस्कटॉप एडिटर में आपका स्वागत है!',
-    welDescr: 'दस्तावेज़ों पर ऑफलाइन काम करें या अपने क्लाउड में आपके सूट को कनेक्ट करें: ओनलीऑफिस, ओनक्लाउड, नेक्स्टक्लाउड।',
+    welWelcome: 'Welcome to PW PDF!',
+    welDescr: 'View, annotate, and edit your PDF documents offline.',
     welNeedHelp: 'मदद चाहिए? हमारे $1 पर जाएँ',
     textHelpCenter: 'सहायता केंद्र',
     btnConnect: 'अभी कनेक्ट करें',

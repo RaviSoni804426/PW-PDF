@@ -1,6 +1,6 @@
 l10n.si = {
-    welWelcome: 'ඔන්ලිඔෆිස් වැඩතල සංස්කරක වෙත පිළිගනිමු!',
-    welDescr: 'මාර්ගඅපගතව ලේඛනවල වැඩ කරන්න හෝ කට්ටලය ඔබගේ මේඝයට සම්බන්ධ කරන්න: ඔන්ලිඔෆිස්, ඔව්න්ක්ලවුඩ්, නෙක්ස්ක්ලවුඩ්.',
+    welWelcome: 'Welcome to PW PDF!',
+    welDescr: 'View, annotate, and edit your PDF documents offline.',
     welNeedHelp: 'උදව් අවශ්‍යද? අපගේ $1 වෙත පිවිසෙන්න.',
     textHelpCenter: 'උපකාර මධ්‍යස්ථානය',
     btnConnect: 'දැන් සබඳින්න',

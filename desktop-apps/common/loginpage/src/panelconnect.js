@@ -76,17 +76,9 @@
         args.id&&(args.id=`id=${args.id}`)||(args.id='');
 
 
-        this.tpl_sidebar =
-                    `<div class="sidebar-block-title">
-                        <span l10n>${_lang.actClouds}</span>
-                        <button class="btn-quick login">
-                            ${isSvgIcons? `<svg class = "icon"><use xlink:href="#plus"></use></svg>` : ''}
-                                <i class="icon tool-icon__20 plus" />
-                        </button>
-                    </div>
-                    <div class="sidebar-block-content flexbox scrollable">
-                        <div class="table-box flex-fill"><table class="table-files list"></table></div>
-                    </div>`;
+        // PW PDF is an offline PDF editor — the cloud-portal sidebar block is
+        // not offered, so the block renders empty.
+        this.tpl_sidebar = '';
 
         args.menu = '.main-column.tool-menu';
         args.field = '.main-column.col-center';
