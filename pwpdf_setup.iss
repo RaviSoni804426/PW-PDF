@@ -49,7 +49,10 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 ; bare "*.bak" - ONLYOFFICE ships real product files with that extension
 ; (dictionaries/hyph_sl_SI.dic.bak), and excluding those silently drops
 ; product data. Only the suffixes our patch scripts create are listed.
-Source: "{#BuildDir}\*"; DestDir: "{app}"; Excludes: "*.bak-*,*.bak2,*.bak3"; \
+; unins000.* is Inno's own uninstaller, regenerated on every install. When the
+; payload comes from an installed copy those files are sitting there, and
+; shipping them installs a stale uninstaller over the fresh one.
+Source: "{#BuildDir}\*"; DestDir: "{app}"; Excludes: "*.bak-*,*.bak2,*.bak3,unins000.*"; \
     Flags: ignoreversion recursesubdirs createallsubdirs
 
 ; The four file-type icons used to be copied in separately from
