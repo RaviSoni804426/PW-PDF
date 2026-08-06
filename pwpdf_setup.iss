@@ -5,11 +5,20 @@
 #define AppVersion "1.0.0"
 #define AppPublisher "Physics Wallah"
 #define AppURL "https://github.com/RaviSoni804426/PW-PDF"
-; Deployed app dir produced by build_tools deploy_desktop.py. Override with
-; ISCC /D so the installer can also be built from an installed copy when the
-; build tree is not around.
+; Deployed app dir produced by build_tools deploy_desktop.py. Resolved relative
+; to this script so it works wherever the repo is checked out - the old default
+; was an absolute D:\pw-pdf\... path that existed only on one machine, so every
+; other checkout failed with an empty payload.
+;
+; Override with ISCC /D to build from an installed copy when the build tree is
+; not around:
+;   ISCC /DBuildDir="C:\Program Files\PW PDF" pwpdf_setup.iss
 #ifndef BuildDir
-  #define BuildDir "D:\pw-pdf\build_tools\out\win_64\onlyoffice\DesktopEditors"
+  #define BuildDir SourcePath + "build_tools\out\win_64\onlyoffice\DesktopEditors"
+#endif
+#if !DirExists(BuildDir)
+  #pragma error "Payload folder not found: " + BuildDir + \
+    " - build first, or pass /DBuildDir=""<folder>""."
 #endif
 ; User-facing launcher inside BuildDir. It is the projicons shim (renamed from
 ; DesktopEditors.exe): it carries the file-type icons, accepts --new:form, and
